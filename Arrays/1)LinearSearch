@@ -1,1 +1,15 @@
-..
+// Linear Search
+
+
+const linearSearch = (array, target) => {
+  for (num in array)
+  {
+    if (array[num] == target)
+    {
+      return `target found in ${num}`
+      }
+  }
+  return `target not found`
+}
+console.log(linearSearch([1,2,3,4,5,,6,7,8],5));
+
