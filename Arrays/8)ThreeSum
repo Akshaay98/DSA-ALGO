@@ -1,3 +1,5 @@
+time :- o(n2)
+space:-o(n)
 var threeSum = function (nums, target) {
   nums.sort();
   let result = [];
