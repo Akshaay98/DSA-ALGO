@@ -1,0 +1,33 @@
+// smallest difference betwwen 2 array
+// time nlogn and mlogn
+// space = 0(1)
+
+const smallestDiff = (num1, num2) => {
+  let currentSum = 0;
+  let smallestSum = Infinity;
+  let left = 0;
+  let right = 0;
+  let smallDiff = [];
+    while (left < num1.length && right < num2.length) {
+        if (num1[left] < num2[right])
+        {
+            currentSum= num2[right]-num1[left]
+        }
+        else
+        { currentSum=num1[left]- num2[right]
+        }
+        
+        if (currentSum < smallestSum) {
+            smallestSum = currentSum;
+            smallDiff = [num1[left], num2[right]];
+          }
+    if (num1[left] < num2[right]) {
+      left++;
+    } else if (num1[left] > num2[right]) {
+      right++;
+    } else 
+      return [num1[left], num2[right]];
+    }
+  return [smallDiff, smallestSum];
+};
+console.log(smallestDiff([-1, 5, 10, 20, 28, 3], [26, 134, 135, 15, 17]));
