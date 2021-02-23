@@ -1,0 +1,46 @@
+// SPiral Traversal of Matrix
+//  SC              EC
+//  SR [ 1     2    3   4]
+//     [ 12    13   14  4]
+//     [ 11    16   15  6]
+//   ER[ 10    9    8   7]
+
+// [1 2 3 4, 5 6 7 8, 9 10 11 1,2 13 14 15 16]
+// o(n) time sopace o(1)
+
+const printMatrix = (matrix) => {
+  let result = [];
+  let startRow = 0;
+  let endRow = matrix.length - 1;
+  let startCol = 0;
+  let endCol = matrix[0].length - 1;
+while(startRow<=endRow && startCol<=endCol)
+  {for (i = startCol; i <= endCol; i++) {
+    result.push(matrix[startRow][i]);
+  }
+  for (i = startRow + 1; i <= endRow; i++) {
+    result.push(matrix[i][endCol]);
+  }
+  for (i = endCol - 1; i >= startCol; i--) {
+    result.push(matrix[endRow][i]);
+  }
+  for (i =endRow -1; i >=startRow+1; i--)
+  {
+    result.push(matrix[i][startCol])
+  }
+  startRow += 1
+  endRow -= 1
+  startCol += 1
+  endCol-=1}
+
+  return result;
+};
+
+console.log(
+  printMatrix([
+    [1, 2, 3, 4],
+    [12, 13, 14, 5],
+    [11, 16, 15, 6],
+    [10, 9, 8, 7],
+  ])
+);
