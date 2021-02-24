@@ -1,0 +1,33 @@
+const FourSum = (nums1, target) => {
+  let nums = nums1.sort(function (a, b) {
+    return a - b;
+  });
+  let result = [];
+  let hash = new Set();
+  for (i = 0; i < nums.length - 3; i++) {
+    for (j = i + 1; j < nums.length - 2; j++) {
+      let k = j + 1;
+      let l = nums.length - 1;
+      while (k < l) {
+        let sum = nums[i] + nums[j] + nums[k] + nums[l];
+     
+        if (sum < target) {
+          k++;
+        } else if (sum > target) {
+          l--;
+        } else if (sum == target) {
+
+          if (!hash[(nums[i], nums[j], nums[k], nums[l])]) {
+            hash.add([nums[i], nums[j], nums[k], nums[l]]);
+            result.push([nums[i], nums[j], nums[k], nums[l]]);
+          }
+
+          k++;
+          l--;
+        }
+      }
+    }
+  }
+  return result;
+};
+console.log(FourSum([7, 6, 4, -1, 1, 2], 16));
