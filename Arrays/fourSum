@@ -10,15 +10,16 @@ const FourSum = (nums1, target) => {
       let l = nums.length - 1;
       while (k < l) {
         let sum = nums[i] + nums[j] + nums[k] + nums[l];
-     
+
         if (sum < target) {
           k++;
         } else if (sum > target) {
           l--;
         } else if (sum == target) {
-
-          if (!hash[(nums[i], nums[j], nums[k], nums[l])]) {
-            hash.add([nums[i], nums[j], nums[k], nums[l]]);
+          let key = `${nums[i]},${nums[j]},${nums[k]},${nums[l]}`;
+          
+          if (!hash.has(key)) {
+            hash.add(key);
             result.push([nums[i], nums[j], nums[k], nums[l]]);
           }
 
@@ -30,4 +31,4 @@ const FourSum = (nums1, target) => {
   }
   return result;
 };
-console.log(FourSum([7, 6, 4, -1, 1, 2], 16));
+console.log(FourSum([-2,-1,-1,1,1,2,2], 0));
