@@ -1,0 +1,26 @@
+/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var rotate = function (matrix) {
+  let result = [];
+  let firstRow = 0;
+  let lastRow = matrix.length - 1;
+  let firstCol = 0;
+  let lastCol = matrix[0].length;
+  let temp = [];
+
+  while (firstCol < lastCol) {
+    temp = [];
+    for (i = lastRow; i >= firstRow; i--) {
+      temp.push(matrix[i][firstCol]);
+    }
+    result.push(temp);
+    firstCol++;
+  }
+
+  return result;
+};
+console.log(
+  rotate([[1,2,3],[4,5,6],[7,8,9]])
+);
